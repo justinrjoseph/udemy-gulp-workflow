@@ -30,7 +30,8 @@
 
   &__description {
     max-width: 30rem;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
     color: #fff;
     font-size: 1.875rem;
     font-weight: 100;
