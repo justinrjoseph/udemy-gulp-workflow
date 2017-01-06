@@ -19,4 +19,13 @@
     @mixin titleStyles;
     font-size: 2.9rem;
   }
+
+  &__description {
+    max-width: 30rem;
+    margin: 0 auto;
+    color: #fff;
+    font-size: 1.875rem;
+    font-weight: 100;
+    text-shadow: .125rem .125rem 0 rgba(0, 0, 0, .1);
+  }
 }
