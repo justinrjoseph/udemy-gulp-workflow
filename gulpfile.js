@@ -1,0 +1,21 @@
+var gulp = require('gulp'),
+    watch = require('gulp-watch'),
+    postCss = require('gulp-postcss'),
+    autoprefixer = require('autoprefixer'),
+    variables = require('postcss-simple-vars'),
+    nesting = require('postcss-nested'),
+    cssImporting = require('postcss-import');
+
+gulp.task('styles', function() {
+  return gulp.src('./app/assets/styles/styles.css')
+             .pipe(postCss([cssImporting, variables, nesting, autoprefixer]))
+             .pipe(gulp.dest('./app/temp/styles'));
+});
+
+gulp.task('watch', function() {
+
+  watch('./app/assets/styles/**/*.css', function() {
+    gulp.start('styles');
+  });
+
+});
