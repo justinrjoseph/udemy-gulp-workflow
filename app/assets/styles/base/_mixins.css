@@ -1,0 +1,4 @@
+@define-mixin titleStyles {
+  font-weight: 300;
+  color: #2f5572;
+}
