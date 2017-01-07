@@ -4,6 +4,7 @@
   padding-right: 1.125rem;
   margin-left: auto;
   margin-right: auto;
+  overflow: hidden;
 
   &--medium {
     max-width: 61rem;

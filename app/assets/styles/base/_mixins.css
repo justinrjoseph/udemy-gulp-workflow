@@ -4,6 +4,14 @@
   color: $mainBlue;
 }
 
+@define-mixin clearfix {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
 @define-mixin atSmall {
   @media ( min-width: 33.125rem ) {
     @mixin-content;

@@ -469,12 +469,17 @@ img {
   max-width: 100%;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 .wrapper {
   max-width: 75rem;
   padding-left: 1.125rem;
   padding-right: 1.125rem;
   margin-left: auto;
   margin-right: auto;
+  overflow: hidden;
 }
 
 .wrapper--medium {
@@ -500,6 +505,33 @@ img {
 .page-section--blue {
   background-color: #2f5572;
   color: #fff;
+}
+
+.row::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.row--gutters {
+  margin-right: -4.0625rem;
+}
+
+.row--gutters > div {
+  padding-right: 4.0625rem;
+}
+
+@media ( min-width: 50rem ) {
+
+  .row__medium-4 {
+    float: left;
+    width: 33.33333333333333%;
+  }
+
+  .row__medium-8 {
+    float: left;
+    width: 66.66666666666667%;
+  }
 }
 
 .large-hero {
