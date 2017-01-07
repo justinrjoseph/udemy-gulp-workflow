@@ -9,6 +9,10 @@
     padding-right: 4.0625rem;
   }
 
+  &--b-margin-until-medium {
+    margin-bottom: 1rem;
+  }
+
   @mixin atMedium {
     &__medium-4 {
       float: left;
@@ -26,6 +30,10 @@
       &--smaller {
         width: 63%;
       }
+    }
+
+    &--b-margin-until-medium {
+      margin-bottom: 0;
     }
   }
 }

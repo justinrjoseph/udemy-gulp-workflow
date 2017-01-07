@@ -17,6 +17,10 @@
     margin-right: auto;
   }
 
+  &--no-t-margin {
+    margin-top: 0;
+  }
+
   &--b-margin {
     &-small {
       margin-bottom: .5em;
