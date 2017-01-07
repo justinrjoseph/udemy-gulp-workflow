@@ -3,10 +3,18 @@
 
   &--gutters {
     margin-right: -4.0625rem;
-  }
 
-  &--gutters > div {
-    padding-right: 4.0625rem;
+    & > div {
+      padding-right: 4.0625rem;
+    }
+
+    &-large {
+      margin-right: -6.25rem;
+
+      & > div {
+        padding-right: 6.25rem;
+      }
+    }
   }
 
   &--b-margin-until-medium {
@@ -14,21 +22,28 @@
   }
 
   @mixin atMedium {
-    &__medium-4 {
-      float: left;
-      width: 33.33333333333333%;
+    &__medium {
+      &-4 {
+        float: left;
+        width: 33.33333333333333%;
 
-      &--larger {
-        width: 37%;
+        &--larger {
+          width: 37%;
+        }
       }
-    }
 
-    &__medium-8 {
-      float: left;
-      width: 66.66666666666667%;
+      &-6 {
+        float: left;
+        width: 50%;
+      }
 
-      &--smaller {
-        width: 63%;
+      &-8 {
+        float: left;
+        width: 66.66666666666667%;
+
+        &--smaller {
+          width: 63%;
+        }
       }
     }
 
