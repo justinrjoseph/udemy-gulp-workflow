@@ -588,6 +588,8 @@ a {
   width: 100%;
   padding: .625rem 0;
   z-index: 1;
+  -webkit-transition: background-color .3s ease-out;
+  transition: background-color .3s ease-out;
 }
 
 @media ( min-width: 800px ) {
@@ -623,18 +625,33 @@ a {
 }
 
 .site-header__menu-content {
-  display: none;
+  opacity: 0;
+  position: relative;
+  text-align: center;
+  padding-top: 5.625rem;
+  z-index: -10;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-transition: all .3s ease-out;
+  transition: all .3s ease-out;
 }
 
 @media ( min-width: 800px ) {
 
   .site-header__menu-content {
-    display: block;
+    opacity: 1;
+    z-index: 1;
+    padding-top: 0;
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
 }
 
 .site-header__menu-content--is-visible {
-  display: block;
+  opacity: 1;
+  z-index: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 
 .site-header__menu-icon {
@@ -644,6 +661,7 @@ a {
   width: 20px;
   height: 20px;
   background-color: #fff;
+  z-index: 10;
   cursor: pointer;
 }
 
@@ -654,12 +672,33 @@ a {
   }
 }
 
-.site-header__btn-container {
-  float: right;
+@media ( min-width: 800px ) {
+
+  .site-header__btn-container {
+    float: right;
+  }
 }
 
-.primary-nav--pull-right {
-  float: right;
+.site-header--is-expanded {
+  background-color: rgba(47,85,114, .55);
+}
+
+.primary-nav {
+  padding-top: .625rem;
+}
+
+@media ( min-width: 800px ) {
+
+  .primary-nav {
+    padding-top: 0;
+  }
+}
+
+@media ( min-width: 800px ) {
+
+  .primary-nav--pull-right {
+    float: right;
+  }
 }
 
 .primary-nav ul {
@@ -674,17 +713,48 @@ a {
 }
 
 .primary-nav li {
+  display: inline-block;
   list-style: none;
-  float: left;
-  padding-right: 1.25rem;
+  padding-right: .4375rem;
+}
+
+@media ( min-width: 800px ) {
+
+  .primary-nav li {
+    float: left;
+    display: block;
+    padding-right: 1.25rem;
+  }
+}
+
+.primary-nav li:last-child {
+  padding-right: 0;
+}
+
+@media ( min-width: 800px ) {
+
+  .primary-nav li:last-child {
+    padding-right: 1.25rem;
+  }
 }
 
 .primary-nav a {
   display: block;
-  padding: .75rem 0;
+  padding: .3125rem .5rem;
   color: #fff;
+  background-color: rgba(47,85,114, .5);
+  font-size: .8rem;
   font-weight: 300;
   text-decoration: none;
+}
+
+@media ( min-width: 800px ) {
+
+  .primary-nav a {
+    padding: .75rem 0;
+    background-color: transparent;
+    font-size: 1rem;
+  }
 }
 
 .wrapper {
@@ -1153,7 +1223,7 @@ a {
   margin-bottom: 6.125rem;
 }
 
-.testimonial--last {
+.testimonial:last-child {
   margin-bottom: 0;
 }
 
