@@ -34,6 +34,10 @@
       @mixin atMedium {
         display: block;
       }
+
+      &--is-visible {
+        display: block;
+      }
     }
 
     &-icon {
@@ -43,6 +47,7 @@
       width: 20px;
       height: 20px;
       background-color: #fff;
+      cursor: pointer;
 
       @mixin atMedium {
         display: none;

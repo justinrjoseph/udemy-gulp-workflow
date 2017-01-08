@@ -633,6 +633,10 @@ a {
   }
 }
 
+.site-header__menu-content--is-visible {
+  display: block;
+}
+
 .site-header__menu-icon {
   position: absolute;
   top: 10px;
@@ -640,6 +644,7 @@ a {
   width: 20px;
   height: 20px;
   background-color: #fff;
+  cursor: pointer;
 }
 
 @media ( min-width: 800px ) {
