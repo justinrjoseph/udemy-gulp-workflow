@@ -1,3 +1,12 @@
+@define-mixin mobileIconBars {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 20px;
+  height: 3px;
+  background-color: #fff;
+}
+
 @define-mixin titleStyles {
   margin: 0;
   font-weight: 300;
