@@ -50,13 +50,19 @@
 
 	var _MobileMenu2 = _interopRequireDefault(_MobileMenu);
 
-	var _RevealOnScroll = __webpack_require__(3);
+	var _StickyHeader = __webpack_require__(3);
+
+	var _StickyHeader2 = _interopRequireDefault(_StickyHeader);
+
+	var _RevealOnScroll = __webpack_require__(5);
 
 	var _RevealOnScroll2 = _interopRequireDefault(_RevealOnScroll);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var mobileMenu = new _MobileMenu2.default();
+
+	var stickyHeader = new _StickyHeader2.default();
 
 	var revealFeatures = new _RevealOnScroll2.default('.feature-item', '85%');
 	var revealTestimonials = new _RevealOnScroll2.default('.testimonial', '85%');
@@ -94,7 +100,7 @@
 	  _createClass(MobileMenu, [{
 	    key: 'events',
 	    value: function events() {
-	      this.menuIcon.click(this.toggleMenu.bind(this));
+	      this.menuIcon.on('click', this.toggleMenu.bind(this));
 	    }
 	  }, {
 	    key: 'toggleMenu',
@@ -10360,41 +10366,37 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var RevealOnScroll = function () {
-	  function RevealOnScroll(els, offset) {
-	    _classCallCheck(this, RevealOnScroll);
+	var StickyHeader = function () {
+	  function StickyHeader() {
+	    _classCallCheck(this, StickyHeader);
 
-	    this.itemsToReveal = (0, _jquery2.default)(els);
-	    this.hideInitially();
-	    this.createWaypoints(offset);
+	    this.siteHeader = (0, _jquery2.default)('.site-header');
+	    this.headerTrigger = (0, _jquery2.default)('.large-hero__title');
+	    this.createHeaderWaypoint();
 	  }
 
-	  _createClass(RevealOnScroll, [{
-	    key: 'hideInitially',
-	    value: function hideInitially() {
-	      this.itemsToReveal.addClass('item-to-reveal');
-	    }
-	  }, {
-	    key: 'createWaypoints',
-	    value: function createWaypoints(offset) {
-	      this.itemsToReveal.each(function () {
-	        var currentItem = this;
+	  _createClass(StickyHeader, [{
+	    key: 'createHeaderWaypoint',
+	    value: function createHeaderWaypoint() {
+	      var self = this;
 
-	        new Waypoint({
-	          element: currentItem,
-	          handler: function handler() {
-	            (0, _jquery2.default)(currentItem).addClass('item-to-reveal--is-visible');
-	          },
-	          offset: offset
-	        });
+	      new Waypoint({
+	        element: this.headerTrigger[0],
+	        handler: function handler(direction) {
+	          if (direction === 'down') {
+	            self.siteHeader.addClass('site-header--dark');
+	          } else {
+	            self.siteHeader.removeClass('site-header--dark');
+	          }
+	        }
 	      });
 	    }
 	  }]);
 
-	  return RevealOnScroll;
+	  return StickyHeader;
 	}();
 
-	exports.default = RevealOnScroll;
+	exports.default = StickyHeader;
 
 /***/ },
 /* 4 */
@@ -11158,6 +11160,66 @@
 	  Waypoint.Adapter = NoFrameworkAdapter
 	}())
 	;
+
+/***/ },
+/* 5 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _jquery = __webpack_require__(2);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	var _noframework = __webpack_require__(4);
+
+	var _noframework2 = _interopRequireDefault(_noframework);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var RevealOnScroll = function () {
+	  function RevealOnScroll(els, offset) {
+	    _classCallCheck(this, RevealOnScroll);
+
+	    this.itemsToReveal = (0, _jquery2.default)(els);
+	    this.hideInitially();
+	    this.createWaypoints(offset);
+	  }
+
+	  _createClass(RevealOnScroll, [{
+	    key: 'hideInitially',
+	    value: function hideInitially() {
+	      this.itemsToReveal.addClass('item-to-reveal');
+	    }
+	  }, {
+	    key: 'createWaypoints',
+	    value: function createWaypoints(offset) {
+	      this.itemsToReveal.each(function () {
+	        var currentItem = this;
+
+	        new Waypoint({
+	          element: currentItem,
+	          handler: function handler() {
+	            (0, _jquery2.default)(currentItem).addClass('item-to-reveal--is-visible');
+	          },
+	          offset: offset
+	        });
+	      });
+	    }
+	  }]);
+
+	  return RevealOnScroll;
+	}();
+
+	exports.default = RevealOnScroll;
 
 /***/ }
 /******/ ]);
