@@ -26,6 +26,10 @@
     }
   }
 
+  &--narrow {
+    max-width: 29.375rem;
+  }
+
   &--medium {
     max-width: 61rem;
   }
