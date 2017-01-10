@@ -1,5 +1,5 @@
 .testimonial {
-  padding: 0 1.125rem 1px 1.125rem;
+  padding: 0 1.125rem .0625rem 1.125rem;
   background-color: rgba(255, 255, 255, .8);
   margin-bottom: 6.125rem;
 
@@ -8,16 +8,16 @@
   }
 
   @mixin atLarge {
-    padding: 0 1.8125rem 1px 1.8125rem;
+    padding: 0 1.8125rem .0625rem 1.8125rem;
     margin-bottom: 0;
   }
 
   &__photo {
     position: relative;
-    top: -80px;
+    top: -5rem;
     width: 160px;
     height: 160px;
-    margin: 0 auto -80px auto;
+    margin: 0 auto -5rem auto;
     border: .375rem solid rgba(255, 255, 255, .8);
     border-radius: 50%;
     overflow: hidden;

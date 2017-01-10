@@ -25,7 +25,7 @@
     transition: transform .3s ease-out;
 
     &__graphic {
-      text-indent: -9999px;
+      text-indent: -624.9375rem;
     }
 
     @mixin atMedium {
@@ -78,8 +78,8 @@
       }
 
       position: absolute;
-      top: 10px;
-      right: 10px;
+      top: .625rem;
+      right: .625rem;
       width: 20px;
       height: 19px;
       z-index: 10;
@@ -107,7 +107,7 @@
         }
 
         &::after {
-          transform: rotate(-45deg) scaleX(1.25) translateY(1px);
+          transform: rotate(-45deg) scaleX(1.25) translateY(.0625rem);
         }
       }
     }

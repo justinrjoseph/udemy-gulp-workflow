@@ -621,7 +621,7 @@ a {
 }
 
 .site-header__logo__graphic {
-  text-indent: -9999px;
+  text-indent: -624.9375rem;
 }
 
 @media ( min-width: 800px ) {
@@ -670,8 +670,8 @@ a {
 
 .site-header__menu-icon {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: .625rem;
+  right: .625rem;
   width: 20px;
   height: 19px;
   z-index: 10;
@@ -743,8 +743,8 @@ a {
 }
 
 .site-header__menu-icon--close-x::after {
-  -webkit-transform: rotate(-45deg) scaleX(1.25) translateY(1px);
-          transform: rotate(-45deg) scaleX(1.25) translateY(1px);
+  -webkit-transform: rotate(-45deg) scaleX(1.25) translateY(.0625rem);
+          transform: rotate(-45deg) scaleX(1.25) translateY(.0625rem);
 }
 
 @media ( min-width: 800px ) {
@@ -1259,6 +1259,7 @@ a {
 }
 
 .section-title--less-margin {
+  margin-top: 0;
   margin-bottom: 1.3rem;
 }
 
@@ -1319,7 +1320,7 @@ a {
 }
 
 .testimonial {
-  padding: 0 1.125rem 1px 1.125rem;
+  padding: 0 1.125rem .0625rem 1.125rem;
   background-color: rgba(255, 255, 255, .8);
   margin-bottom: 6.125rem;
 }
@@ -1331,17 +1332,17 @@ a {
 @media ( min-width: 1010px ) {
 
   .testimonial {
-    padding: 0 1.8125rem 1px 1.8125rem;
+    padding: 0 1.8125rem .0625rem 1.8125rem;
     margin-bottom: 0;
   }
 }
 
 .testimonial__photo {
   position: relative;
-  top: -80px;
+  top: -5rem;
   width: 160px;
   height: 160px;
-  margin: 0 auto -80px auto;
+  margin: 0 auto -5rem auto;
   border: .375rem solid rgba(255, 255, 255, .8);
   border-radius: 50%;
   overflow: hidden;
@@ -1386,6 +1387,8 @@ a {
 }
 
 .modal {
+  opacity: 0;
+  visibility: hidden;
   position: fixed;
   top: 0;
   right: 0;
@@ -1393,6 +1396,18 @@ a {
   left: 0;
   background-color: rgba(255, 255, 255, .94);
   z-index: 5;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-transition: all .3s ease-out;
+  transition: all .3s ease-out;
+}
+
+.modal__content {
+  position: relative;
+  top: 50%;
+  width: 100%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 
 .modal__description {
@@ -1400,6 +1415,30 @@ a {
   font-size: 1.3rem;
   font-weight: 300;
   line-height: 1.65;
+}
+
+.modal__close {
+  position: absolute;
+  top: .9375rem;
+  right: .9375rem;
+  color: #2f5572;
+  font-size: 2rem;
+  -webkit-transform: scaleX(1.2);
+          transform: scaleX(1.2);
+  -webkit-transform-origin: 100% 0;
+          transform-origin: 100% 0;
+  cursor: pointer;
+}
+
+.modal__close:hover {
+  color: #d59541;
+}
+
+.modal--is-visible {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 
 .social-icons {
