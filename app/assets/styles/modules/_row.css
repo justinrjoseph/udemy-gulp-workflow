@@ -64,7 +64,7 @@
     }
 
     /* Equal Height Rules */
-    &--equal-height-at-medium {
+    .flexbox &--equal-height-at-medium {
       display: flex;
 
       & > div {
@@ -105,7 +105,7 @@
     }
 
     /* Equal Height Rules */
-    &--equal-height-at-large {
+    .flexbox &--equal-height-at-large {
       display: flex;
 
       & > div {
