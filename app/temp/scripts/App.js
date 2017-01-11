@@ -54,11 +54,15 @@
 
 	var _StickyHeader2 = _interopRequireDefault(_StickyHeader);
 
-	var _RevealOnScroll = __webpack_require__(6);
+	var _LazyLoad = __webpack_require__(6);
+
+	var _LazyLoad2 = _interopRequireDefault(_LazyLoad);
+
+	var _RevealOnScroll = __webpack_require__(7);
 
 	var _RevealOnScroll2 = _interopRequireDefault(_RevealOnScroll);
 
-	var _Modal = __webpack_require__(7);
+	var _Modal = __webpack_require__(8);
 
 	var _Modal2 = _interopRequireDefault(_Modal);
 
@@ -67,6 +71,8 @@
 	var mobileMenu = new _MobileMenu2.default();
 
 	var stickyHeader = new _StickyHeader2.default();
+
+	var lazyLoad = new _LazyLoad2.default();
 
 	var revealFeatures = new _RevealOnScroll2.default('.feature-item', '85%');
 	var revealTestimonials = new _RevealOnScroll2.default('.testimonial', '85%');
@@ -11586,6 +11592,52 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+	var LazyLoad = function () {
+	  function LazyLoad() {
+	    _classCallCheck(this, LazyLoad);
+
+	    this.lazyImages = (0, _jquery2.default)('.lazyload');
+	    this.refreshWaypoints();
+	  }
+
+	  _createClass(LazyLoad, [{
+	    key: 'refreshWaypoints',
+	    value: function refreshWaypoints() {
+	      this.lazyImages.on('load', function () {
+	        Waypoint.refreshAll();
+	      });
+	    }
+	  }]);
+
+	  return LazyLoad;
+	}();
+
+	exports.default = LazyLoad;
+
+/***/ },
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _jquery = __webpack_require__(2);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	var _noframework = __webpack_require__(5);
+
+	var _noframework2 = _interopRequireDefault(_noframework);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 	var RevealOnScroll = function () {
 	  function RevealOnScroll(els, offset) {
 	    _classCallCheck(this, RevealOnScroll);
@@ -11623,7 +11675,7 @@
 	exports.default = RevealOnScroll;
 
 /***/ },
-/* 7 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
