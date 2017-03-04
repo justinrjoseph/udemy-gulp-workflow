@@ -1329,7 +1329,7 @@ a {
   margin-bottom: 6.125rem;
 }
 
-.testimonial:last-child {
+.testimonial--last {
   margin-bottom: 0;
 }
 
