@@ -4,7 +4,6 @@ import waypoints from '../../../../node_modules/waypoints/lib/noframework.waypoi
 class LazyLoad {
   constructor() {
     this.lazyImages = $('.lazyload');
-    this.refreshWaypoints();
   }
 
   refreshWaypoints() {

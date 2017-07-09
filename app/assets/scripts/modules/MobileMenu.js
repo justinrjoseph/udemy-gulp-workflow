@@ -3,19 +3,21 @@ import $ from 'jquery';
 class MobileMenu {
   constructor() {
     this.siteHeader = $('.site-header');
-    this.menuIcon = $('.site-header__menu-icon');
-    this.menuContent = $('.site-header__menu-content');
-    this.events();
+
+    this.menu = {
+      icon: $('.site-header__menu-icon'),
+      content: $('.site-header__menu-content')
+    };
   }
 
-  events() {
-    this.menuIcon.on('click', this.toggleMenu.bind(this));
+  enableEvents() {
+    this.menu.icon.on('click', () => this.toggleMenu());
   }
 
   toggleMenu() {
     this.siteHeader.toggleClass('site-header--is-expanded');
-    this.menuIcon.toggleClass('site-header__menu-icon--close-x');
-    this.menuContent.toggleClass('site-header__menu-content--is-visible');
+    this.menu.icon.toggleClass('site-header__menu-icon--close-x');
+    this.menu.content.toggleClass('site-header__menu-content--is-visible');
   }
 }
 

@@ -6,45 +6,41 @@ class StickyHeader {
   constructor() {
     this.siteHeader = $('.site-header');
     this.headerColorTrigger = $('.large-hero__title');
-    this.createHeaderWaypoint();
-
     this.navigationLinks = $('.primary-nav').find('a');
-    this.enableSmoothScroll();
-
     this.pageSections = $('.page-section');
-    this.createPageSectionWaypoints();
   }
 
   enableSmoothScroll() {
     this.navigationLinks.smoothScroll();
   }
 
-  createHeaderWaypoint() {
-    var self = this;
+  createWaypoint() {
+    let self = this;
 
     new Waypoint({
       element: this.headerColorTrigger[0],
-      handler: function(direction) {
+      handler: (direction) => {
         if ( direction === 'down' ) {
           self.siteHeader.addClass('site-header--dark');
         } else {
           self.siteHeader.removeClass('site-header--dark');
+          self.navigationLinks.removeClass('is-current-section');
         }
       }
     });
   }
 
   createPageSectionWaypoints() {
-    var self = this;
+    let self = this;
 
     this.pageSections.each(function() {
-      var currentPageSection = this;
+      let currentPageSection = this;
 
       new Waypoint({
         element: currentPageSection,
-        handler: function(direction) {
+        handler: (direction) => {
           if ( direction === 'down' ) {
-            var headerLink = $(currentPageSection).data('scroll-match');
+            let headerLink = $(currentPageSection).data('scroll-match');
             self.navigationLinks.removeClass('is-current-section');
             $(headerLink).addClass('is-current-section');
           }
@@ -54,9 +50,9 @@ class StickyHeader {
 
       new Waypoint({
         element: currentPageSection,
-        handler: function(direction) {
+        handler: (direction) => {
           if ( direction === 'up' ) {
-            var headerLink = $(currentPageSection).data('scroll-match');
+            let headerLink = $(currentPageSection).data('scroll-match');
             self.navigationLinks.removeClass('is-current-section');
             $(headerLink).addClass('is-current-section');
           }

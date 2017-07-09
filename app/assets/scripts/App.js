@@ -4,13 +4,24 @@ import LazyLoad from './modules/LazyLoad';
 import RevealOnScroll from './modules/RevealOnScroll';
 import Modal from './modules/Modal';
 
-var mobileMenu = new MobileMenu();
+let mobileMenu = new MobileMenu();
+mobileMenu.enableEvents();
 
-var stickyHeader = new StickyHeader();
+let stickyHeader = new StickyHeader();
+stickyHeader.createWaypoint();
+stickyHeader.enableSmoothScroll();
+stickyHeader.createPageSectionWaypoints();
 
-var lazyLoad = new LazyLoad();
+let lazyLoad = new LazyLoad();
+lazyLoad.refreshWaypoints();
 
-var revealFeatures = new RevealOnScroll('.feature-item', '85%');
-var revealTestimonials = new RevealOnScroll('.testimonial', '85%');
+let revealFeatures = new RevealOnScroll('.feature-item');
+revealFeatures.hideInitially();
+revealFeatures.createWaypoints('85%');
 
-var modal = new Modal();
+let revealTestimonials = new RevealOnScroll('.testimonial', '85%');
+revealTestimonials.hideInitially();
+revealTestimonials.createWaypoints('85%');
+
+let modal = new Modal();
+modal.enableEvents();

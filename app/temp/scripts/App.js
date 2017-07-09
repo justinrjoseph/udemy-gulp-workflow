@@ -69,15 +69,26 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var mobileMenu = new _MobileMenu2.default();
+	mobileMenu.enableEvents();
 
 	var stickyHeader = new _StickyHeader2.default();
+	stickyHeader.createWaypoint();
+	stickyHeader.enableSmoothScroll();
+	stickyHeader.createPageSectionWaypoints();
 
 	var lazyLoad = new _LazyLoad2.default();
+	lazyLoad.refreshWaypoints();
 
-	var revealFeatures = new _RevealOnScroll2.default('.feature-item', '85%');
+	var revealFeatures = new _RevealOnScroll2.default('.feature-item');
+	revealFeatures.hideInitially();
+	revealFeatures.createWaypoints('85%');
+
 	var revealTestimonials = new _RevealOnScroll2.default('.testimonial', '85%');
+	revealTestimonials.hideInitially();
+	revealTestimonials.createWaypoints('85%');
 
 	var modal = new _Modal2.default();
+	modal.enableEvents();
 
 /***/ },
 /* 1 */
@@ -104,22 +115,28 @@
 	    _classCallCheck(this, MobileMenu);
 
 	    this.siteHeader = (0, _jquery2.default)('.site-header');
-	    this.menuIcon = (0, _jquery2.default)('.site-header__menu-icon');
-	    this.menuContent = (0, _jquery2.default)('.site-header__menu-content');
-	    this.events();
+
+	    this.menu = {
+	      icon: (0, _jquery2.default)('.site-header__menu-icon'),
+	      content: (0, _jquery2.default)('.site-header__menu-content')
+	    };
 	  }
 
 	  _createClass(MobileMenu, [{
-	    key: 'events',
-	    value: function events() {
-	      this.menuIcon.on('click', this.toggleMenu.bind(this));
+	    key: 'enableEvents',
+	    value: function enableEvents() {
+	      var _this = this;
+
+	      this.menu.icon.on('click', function () {
+	        return _this.toggleMenu();
+	      });
 	    }
 	  }, {
 	    key: 'toggleMenu',
 	    value: function toggleMenu() {
 	      this.siteHeader.toggleClass('site-header--is-expanded');
-	      this.menuIcon.toggleClass('site-header__menu-icon--close-x');
-	      this.menuContent.toggleClass('site-header__menu-content--is-visible');
+	      this.menu.icon.toggleClass('site-header__menu-icon--close-x');
+	      this.menu.content.toggleClass('site-header__menu-content--is-visible');
 	    }
 	  }]);
 
@@ -10388,13 +10405,8 @@
 
 	    this.siteHeader = (0, _jquery2.default)('.site-header');
 	    this.headerColorTrigger = (0, _jquery2.default)('.large-hero__title');
-	    this.createHeaderWaypoint();
-
 	    this.navigationLinks = (0, _jquery2.default)('.primary-nav').find('a');
-	    this.enableSmoothScroll();
-
 	    this.pageSections = (0, _jquery2.default)('.page-section');
-	    this.createPageSectionWaypoints();
 	  }
 
 	  _createClass(StickyHeader, [{
@@ -10403,8 +10415,8 @@
 	      this.navigationLinks.smoothScroll();
 	    }
 	  }, {
-	    key: 'createHeaderWaypoint',
-	    value: function createHeaderWaypoint() {
+	    key: 'createWaypoint',
+	    value: function createWaypoint() {
 	      var self = this;
 
 	      new Waypoint({
@@ -10414,6 +10426,7 @@
 	            self.siteHeader.addClass('site-header--dark');
 	          } else {
 	            self.siteHeader.removeClass('site-header--dark');
+	            self.navigationLinks.removeClass('is-current-section');
 	          }
 	        }
 	      });
@@ -11597,7 +11610,6 @@
 	    _classCallCheck(this, LazyLoad);
 
 	    this.lazyImages = (0, _jquery2.default)('.lazyload');
-	    this.refreshWaypoints();
 	  }
 
 	  _createClass(LazyLoad, [{
@@ -11639,12 +11651,10 @@
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	var RevealOnScroll = function () {
-	  function RevealOnScroll(els, offset) {
+	  function RevealOnScroll(els) {
 	    _classCallCheck(this, RevealOnScroll);
 
 	    this.itemsToReveal = (0, _jquery2.default)(els);
-	    this.hideInitially();
-	    this.createWaypoints(offset);
 	  }
 
 	  _createClass(RevealOnScroll, [{
@@ -11698,35 +11708,43 @@
 	  function Modal() {
 	    _classCallCheck(this, Modal);
 
-	    this.openModalButton = (0, _jquery2.default)('.open-modal');
-	    this.modal = (0, _jquery2.default)('.modal');
-	    this.closeModalButton = (0, _jquery2.default)('.modal__close');
-	    this.events();
+	    this.el = (0, _jquery2.default)('.modal');
+
+	    this.btn = {
+	      open: (0, _jquery2.default)('.open-modal'),
+	      close: (0, _jquery2.default)('.modal__close')
+	    };
 	  }
 
 	  _createClass(Modal, [{
-	    key: 'events',
-	    value: function events() {
-	      this.openModalButton.on('click', this.openModal.bind(this));
-	      this.closeModalButton.on('click', this.closeModal.bind(this));
+	    key: 'enableEvents',
+	    value: function enableEvents() {
+	      var _this = this;
+
+	      this.btn.open.on('click', function () {
+	        return _this.open();
+	      });
+	      this.btn.close.on('click', function () {
+	        return _this.close();
+	      });
 	      (0, _jquery2.default)(document).on('keyup', this.escapeKeyHandler.bind(this));
 	    }
 	  }, {
-	    key: 'openModal',
-	    value: function openModal() {
-	      this.modal.addClass('modal--is-visible');
+	    key: 'open',
+	    value: function open() {
+	      this.el.addClass('modal--is-visible');
 	      return false;
 	    }
 	  }, {
-	    key: 'closeModal',
-	    value: function closeModal() {
-	      this.modal.removeClass('modal--is-visible');
+	    key: 'close',
+	    value: function close() {
+	      this.el.removeClass('modal--is-visible');
 	    }
 	  }, {
 	    key: 'escapeKeyHandler',
 	    value: function escapeKeyHandler(e) {
 	      if (e.keyCode === 27) {
-	        this.closeModal();
+	        this.close();
 	      }
 	    }
 	  }]);
