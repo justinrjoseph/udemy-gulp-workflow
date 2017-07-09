@@ -1,5 +1,6 @@
 .primary-nav {
   padding-top: .625rem;
+  height: 2.625rem;
 
   @mixin atMedium {
     padding-top: 0;
@@ -12,6 +13,7 @@
   }
 
   ul {
+    height: inherit;
     padding: 0;
     margin: 0;
     @mixin clearfix;
@@ -19,12 +21,13 @@
 
   li {
     display: inline-block;
+    height: inherit;
     list-style: none;
     padding-right: .4375rem;
 
     @mixin atMedium {
       float: left;
-      display: block;
+      display: table;
       padding-right: 1.25rem;
     }
 
@@ -47,7 +50,8 @@
     text-decoration: none;
 
     @mixin atMedium {
-      padding: .75rem 0;
+      display: table-cell;
+      vertical-align: middle;
       background-color: transparent;
       font-size: 1rem;
 

@@ -764,6 +764,7 @@ a {
 
 .primary-nav {
   padding-top: .625rem;
+  height: 2.625rem;
 }
 
 @media ( min-width: 800px ) {
@@ -781,6 +782,7 @@ a {
 }
 
 .primary-nav ul {
+  height: inherit;
   padding: 0;
   margin: 0;
 }
@@ -793,6 +795,7 @@ a {
 
 .primary-nav li {
   display: inline-block;
+  height: inherit;
   list-style: none;
   padding-right: .4375rem;
 }
@@ -801,7 +804,7 @@ a {
 
   .primary-nav li {
     float: left;
-    display: block;
+    display: table;
     padding-right: 1.25rem;
   }
 }
@@ -830,7 +833,8 @@ a {
 @media ( min-width: 800px ) {
 
   .primary-nav a {
-    padding: .75rem 0;
+    display: table-cell;
+    vertical-align: middle;
     background-color: transparent;
     font-size: 1rem;
   }
