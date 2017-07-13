@@ -6,7 +6,7 @@
   margin-right: auto;
   overflow: hidden;
 
-  &--no-padding-until-medium {
+  &--no-padding-until-md {
     padding-left: 0;
     padding-right: 0;
 
@@ -16,7 +16,7 @@
     }
   }
 
-  &--no-padding-until-large {
+  &--no-padding-until-lg {
     padding-left: 0;
     padding-right: 0;
 
@@ -30,7 +30,7 @@
     max-width: 29.375rem;
   }
 
-  &--medium {
+  &--md {
     max-width: 61rem;
   }
 

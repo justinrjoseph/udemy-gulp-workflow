@@ -1,4 +1,4 @@
-.site-header {
+.header {
   position: absolute;
   width: 100%;
   padding: .625rem 0;
@@ -32,7 +32,7 @@
       left: auto;
       transform: translateX(0);
 
-      .site-header--dark & {
+      .header--dark & {
         transform: scale(.61);
       }
     }
@@ -55,7 +55,7 @@
         transform: scale(1);
       }
 
-      &--is-visible {
+      &--visible {
         opacity: 1;
         z-index: 1;
         transform: scale(1);
@@ -101,7 +101,7 @@
           transform: rotate(45deg) scaleX(1.25);
         }
 
-        .site-header__menu-icon__middle {
+        .header__menu-icon__middle {
           opacity: 0;
           transform: scaleX(0);
         }
@@ -119,7 +119,7 @@
     }
   }
 
-  &--is-expanded {
+  &--expanded {
     background-color: rgba($mainBlue, .55);
   }
 }

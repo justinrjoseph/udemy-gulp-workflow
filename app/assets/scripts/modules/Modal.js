@@ -17,12 +17,12 @@ class Modal {
   }
 
   open() {
-    this.el.addClass('modal--is-visible');
+    this.el.addClass('modal--visible');
     return false;
   }
 
   close() {
-    this.el.removeClass('modal--is-visible');
+    this.el.removeClass('modal--visible');
   }
 
   escapeKeyHandler(e) {

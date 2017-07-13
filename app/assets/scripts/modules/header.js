@@ -2,12 +2,12 @@ import $ from 'jquery';
 import smoothScroll from 'jquery-smooth-scroll';
 import waypoints from '../../../../node_modules/waypoints/lib/noframework.waypoints';
 
-class StickyHeader {
+class Header {
   constructor() {
-    this.siteHeader = $('.site-header');
-    this.headerColorTrigger = $('.large-hero__title');
+    this.siteHeader = $('.header');
+    this.headerColorTrigger = $('.hero__title');
     this.navigationLinks = $('.primary-nav').find('a');
-    this.pageSections = $('.page-section');
+    this.pageSections = $('.section');
   }
 
   enableSmoothScroll() {
@@ -21,10 +21,10 @@ class StickyHeader {
       element: this.headerColorTrigger[0],
       handler: (direction) => {
         if ( direction === 'down' ) {
-          self.siteHeader.addClass('site-header--dark');
+          self.siteHeader.addClass('header--dark');
         } else {
-          self.siteHeader.removeClass('site-header--dark');
-          self.navigationLinks.removeClass('is-current-section');
+          self.siteHeader.removeClass('header--dark');
+          self.navigationLinks.removeClass('current-section');
         }
       }
     });
@@ -41,8 +41,8 @@ class StickyHeader {
         handler: (direction) => {
           if ( direction === 'down' ) {
             let headerLink = $(currentPageSection).data('scroll-match');
-            self.navigationLinks.removeClass('is-current-section');
-            $(headerLink).addClass('is-current-section');
+            self.navigationLinks.removeClass('current-section');
+            $(headerLink).addClass('current-section');
           }
         },
         offset: '18%'
@@ -53,8 +53,8 @@ class StickyHeader {
         handler: (direction) => {
           if ( direction === 'up' ) {
             let headerLink = $(currentPageSection).data('scroll-match');
-            self.navigationLinks.removeClass('is-current-section');
-            $(headerLink).addClass('is-current-section');
+            self.navigationLinks.removeClass('current-section');
+            $(headerLink).addClass('current-section');
           }
         },
         offset: '-40%'
@@ -63,4 +63,4 @@ class StickyHeader {
   }
 }
 
-export default StickyHeader;
+export default Header;

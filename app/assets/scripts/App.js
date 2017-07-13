@@ -1,16 +1,16 @@
-import MobileMenu from './modules/MobileMenu';
-import StickyHeader from './modules/StickyHeader';
-import LazyLoad from './modules/LazyLoad';
-import RevealOnScroll from './modules/RevealOnScroll';
-import Modal from './modules/Modal';
+import MobileMenu from './modules/mobile-menu';
+import Header from './modules/header';
+import LazyLoad from './modules/lazy-load';
+import RevealOnScroll from './modules/reveal-on-scroll';
+import Modal from './modules/modal';
 
 let mobileMenu = new MobileMenu();
 mobileMenu.enableEvents();
 
-let stickyHeader = new StickyHeader();
-stickyHeader.createWaypoint();
-stickyHeader.enableSmoothScroll();
-stickyHeader.createPageSectionWaypoints();
+let header = new Header();
+header.createWaypoint();
+header.enableSmoothScroll();
+header.createPageSectionWaypoints();
 
 let lazyLoad = new LazyLoad();
 lazyLoad.refreshWaypoints();

@@ -3,7 +3,7 @@
   transition: all 1.5s ease-out;
   transform: scale(1.15);
 
-  &--is-visible {
+  &--visible {
     opacity: 1;
     transform: scale(1);
   }

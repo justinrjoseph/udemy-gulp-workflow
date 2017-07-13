@@ -1,11 +1,11 @@
-.page-section {
+.section {
   padding: 1.2rem 0;
 
   @mixin atMedium {
     padding: 4.5rem 0;
   }
 
-  &--no-b-padding-until-medium {
+  &--no-b-padding-until-md {
     padding-bottom: 0;
 
     @mixin atMedium {
@@ -13,7 +13,7 @@
     }
   }
 
-  &--no-b-padding-until-large {
+  &--no-b-padding-until-lg {
     padding-bottom: 0;
 
     @mixin atLarge {
@@ -23,7 +23,7 @@
 
   &--blue {
     background-color: $mainBlue;
-    color: #fff;
+    color: white;
   }
 
   &--testimonials {

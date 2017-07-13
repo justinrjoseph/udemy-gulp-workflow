@@ -1,8 +1,8 @@
-.site-footer {
+.footer {
   text-align: center;
   padding: .5rem 0;
   background-color: $mainBlue;
-  color: #fff;
+  color: white;
 
   &__text {
     display: block;
