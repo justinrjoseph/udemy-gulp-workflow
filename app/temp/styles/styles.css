@@ -482,7 +482,7 @@ a {
 /* Instead edit gulp/templates/sprite.css */
 
 .icon {
-	background-image: url(../../assets/images/sprites/sprite-8eb89099.svg);
+	background-image: url(../../assets/images/sprites/sprite-e79e95cc.svg);
 }
 
 .no-svg .icon {
@@ -592,7 +592,6 @@ a {
   width: 100%;
   padding: .625rem 0;
   z-index: 1;
-  -webkit-transition: background-color .3s ease-out;
   transition: background-color .3s ease-out;
 }
 
@@ -618,7 +617,6 @@ a {
           transform: translateX(-50%) scale(.8);
   -webkit-transform-origin: 50% 0;
           transform-origin: 50% 0;
-  -webkit-transition: -webkit-transform .3s ease-out;
   transition: -webkit-transform .3s ease-out;
   transition: transform .3s ease-out;
   transition: transform .3s ease-out, -webkit-transform .3s ease-out;
@@ -650,7 +648,6 @@ a {
   z-index: -10;
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
-  -webkit-transition: all .3s ease-out;
   transition: all .3s ease-out;
 }
 
@@ -692,7 +689,6 @@ a {
   top: 0;
   -webkit-transform-origin: 0 0;
           transform-origin: 0 0;
-  -webkit-transition: -webkit-transform .3s ease-out;
   transition: -webkit-transform .3s ease-out;
   transition: transform .3s ease-out;
   transition: transform .3s ease-out, -webkit-transform .3s ease-out;
@@ -708,7 +704,6 @@ a {
   bottom: 0;
   -webkit-transform-origin: 0 100%;
           transform-origin: 0 100%;
-  -webkit-transition: -webkit-transform .3s ease-out;
   transition: -webkit-transform .3s ease-out;
   transition: transform .3s ease-out;
   transition: transform .3s ease-out, -webkit-transform .3s ease-out;
@@ -724,7 +719,6 @@ a {
   top: .5rem;
   -webkit-transform-origin: 0 100%;
           transform-origin: 0 100%;
-  -webkit-transition: all .3s ease-out;
   transition: all .3s ease-out;
 }
 
@@ -1315,7 +1309,6 @@ a {
 
 .item-to-reveal {
   opacity: 0;
-  -webkit-transition: all 1.5s ease-out;
   transition: all 1.5s ease-out;
   -webkit-transform: scale(1.15);
           transform: scale(1.15);
@@ -1406,7 +1399,6 @@ a {
   z-index: 5;
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
-  -webkit-transition: all .3s ease-out;
   transition: all .3s ease-out;
 }
 
